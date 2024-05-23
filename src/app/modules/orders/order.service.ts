@@ -6,9 +6,16 @@ const makeAnOder = async (order: Order) => {
   return result;
 };
 
-const getOrders = async () => {
-  const result = await orderModel.find();
-  return result;
+const getOrders = async (email: RegExp | null) => {
+  if (email === null) {
+    const result = await orderModel.find();
+    return result;
+  } else {
+    const result = await orderModel.find({
+      email: email,
+    });
+    return result;
+  }
 };
 export const orderServices = {
   makeAnOder,

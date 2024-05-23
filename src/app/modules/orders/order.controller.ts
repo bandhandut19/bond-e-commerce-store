@@ -21,12 +21,23 @@ const makeAnOrder = async (req: Request, res: Response) => {
 
 const getOrders = async (req: Request, res: Response) => {
   try {
-    const result = await orderServices.getOrders();
-    res.status(200).json({
-      success: true,
-      message: 'Orders fetched successfully!',
-      data: result,
-    });
+    const email = req.query.email as string;
+    if (email === null) {
+      const result = await orderServices.getOrders(null);
+      res.status(200).json({
+        success: true,
+        message: 'Orders fetched successfully!',
+        data: result,
+      });
+    } else {
+      const regOrder = new RegExp(email, 'i');
+      const result = await orderServices.getOrders(regOrder);
+      res.status(200).json({
+        success: true,
+        message: `Orders fetched successfully for ${email}!`,
+        data: result,
+      });
+    }
   } catch (error) {
     res.status(500).json({
       success: false,
