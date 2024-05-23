@@ -1,6 +1,6 @@
 # bond-e-commerce-store
 
-## To run this project in your local system you have to do 2 things
+## To run this project in your local system you have to do 3 things
 
 # 1
 
