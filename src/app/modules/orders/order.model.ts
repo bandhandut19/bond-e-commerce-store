@@ -1,4 +1,4 @@
-import { Schema, model, connect, Model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { Order } from './oder.interface';
 
 export const orderSchema = new Schema<Order>({

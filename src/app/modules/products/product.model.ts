@@ -1,4 +1,4 @@
-import { Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { InventoryValues, Product, Variant } from './product.interface';
 
 const variant = new Schema<Variant>({
