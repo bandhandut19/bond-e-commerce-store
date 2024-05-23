@@ -12,7 +12,22 @@ const getAllProducts = async () => {
   return result;
 };
 
+const getSingleProduct = async (productId: string) => {
+  const result = await productModel.findOne({ _id: productId });
+  return result;
+};
+
+const updateProduct = async (productId: string, updatedData: Product) => {
+  const result = await productModel.updateOne(
+    { _id: productId },
+    { $set: updatedData },
+  );
+  return result;
+};
+
 export const productServices = {
   createNewProductToDB,
   getAllProducts,
+  getSingleProduct,
+  updateProduct,
 };
