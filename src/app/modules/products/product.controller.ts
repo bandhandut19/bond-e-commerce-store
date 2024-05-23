@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { productServices } from './product.service';
-
 const createNewProduct = async (req: Request, res: Response) => {
   try {
     const productData = req.body.product;
