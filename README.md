@@ -4,7 +4,7 @@
 
 # 1
 Clone this repo in your local system.
-create a .env file and write there your database URL of mongodb database with username and password correctly.
+create a .env file and write there your database URL of mongodb database with username and password correctly and set PORT .
 
 
 # 2
