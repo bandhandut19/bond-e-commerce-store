@@ -3,7 +3,7 @@
 ## To run this project in your local system you have to do 3 things
 
 # 1
-
+Clone this repo in your local system.
 create a .env file and write there your database URL of mongodb database with username and password correctly.
 
 
