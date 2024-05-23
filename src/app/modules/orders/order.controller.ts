@@ -5,16 +5,12 @@ import { productServices } from '../products/product.service';
 const makeAnOrder = async (req: Request, res: Response) => {
   try {
     const order = req.body.order;
-    const providedOrderId = req.body.order.productId;
-    const validId = await productServices.getSingleProduct(providedOrderId);
-    if (providedOrderId) {
-      const result = await orderServices.makeAnOder(order);
-      res.status(200).json({
-        success: true,
-        message: 'Order created successfully!',
-        data: result,
-      });
-    }
+    const result = await orderServices.makeAnOder(order);
+    res.status(200).json({
+      success: true,
+      message: 'Order created successfully!',
+      data: result,
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
