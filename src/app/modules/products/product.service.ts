@@ -7,9 +7,17 @@ const createNewProductToDB = async (product: Product) => {
   return result;
 };
 
-const getAllProducts = async () => {
-  const result = await productModel.find();
-  return result;
+const getProducts = async (search: string | null) => {
+  if (search === null) {
+    const result = await productModel.find();
+    return result;
+  } else {
+    const regTerm = new RegExp(search, 'i');
+    const result = await productModel.find({
+      $or: [{ name: regTerm }, { description: regTerm }, { tags: regTerm }],
+    });
+    return result;
+  }
 };
 
 const getSingleProduct = async (productId: string) => {
@@ -32,7 +40,7 @@ const deleteProduct = async (productId: string) => {
 
 export const productServices = {
   createNewProductToDB,
-  getAllProducts,
+  getProducts,
   getSingleProduct,
   updateProduct,
   deleteProduct,
